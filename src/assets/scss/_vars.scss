@@ -1,0 +1,32 @@
+// src/sass/main.scss
+@import '~vuetify/src/styles/styles.sass';
+@import '~vuetify/src/components/VBtn/_variables.scss';
+
+// You need to map-merge your new SASS variables
+$grid-breakpoints: map-merge($grid-breakpoints, (
+  xs: 0,
+  sm: 481px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1440px
+));
+
+$btn-sizes: (
+  'x-small': 40,
+  'small': 56,
+  'default': 54,
+  'large': 74,
+  'x-large': 94
+);
+
+$btn-font-sizes: (
+  'x-small': 16px,
+  'small': 20px,
+  'default': 18px,
+  'large': 26px,
+  'x-large': 26px
+);
+
+$btn-text-transform: none;
+$btn-font-weight: 500;
+$btn-rounded-border-radius: 50px;
