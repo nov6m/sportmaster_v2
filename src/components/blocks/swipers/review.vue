@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="swiper__section">
     <v-container>
       <div class="swiper__title primaryText--text">
         {{ CONFIG.title }}
@@ -111,6 +111,9 @@ export default {
     overflow: hidden;
   }
 
+  &__section {
+    overflow: hidden;
+  }
 
   &__background {
     position: absolute;

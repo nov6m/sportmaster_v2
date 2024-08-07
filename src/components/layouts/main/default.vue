@@ -49,7 +49,8 @@ export default {
     padding-top: 40px;
   }
 }
-.how-it-works-grid {
+.how-it-works-grid,
+.review-swiper {
   padding: 32px 0;
 
   @media(min-width: map-get($grid-breakpoints, 'sm')) {
@@ -61,9 +62,7 @@ export default {
   }
 }
 
-.how-earn-banner,
-.review-swiper,
-.form-default {
+.how-earn-banner {
   padding-top: 32px;
 
   @media(min-width: map-get($grid-breakpoints, 'sm')) {
