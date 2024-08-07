@@ -23,9 +23,7 @@
             </template>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            <div class="faq__subtitle">
-              {{ panel.subtitle }}
-            </div>
+            <div class="faq__subtitle" v-html="panel.subtitle" />
             <div v-if="panel.isForm" class="mt-3 mt-sm-5 d-flex flex-column faq__panel-form flex-lg-row">
               <div class="faq__panel-form-container">
                 <v-form v-model="valid" ref="form">
@@ -93,29 +91,43 @@ import { size } from '@/core/mixins'
 
 const CONFIG = Object.freeze([
   {
-    title: 'Какой налоговый статус нужен для работы?',
-    subtitle: 'Выплаты вознаграждения производятся на ваш расчетный счет'
+    title: 'Как начать работу',
+    subtitle: `
+      1. Зарегистрируйтесь в партнёрской программе.
+      <br><br>
+      2. Ознакомьтесь с особенностями товаров «Спортмастер», действующими акциями и специальными предложениями на сайте <a href="https://sportmaster.ru" class="text-decoration-none primary--text">https://sportmaster.ru</a>.
+      <br><br>
+      3. В личном кабинете партнёра возьмите вашу индивидуальную реферальную ссылку, расскажите своим друзьям, соседям, подписчикам о товарах и отличной доставке «Спортмастер», и поделитесь с ними своей реферальной ссылкой.
+      <br><br>
+      4. Человек, которому вы порекомендовали товар, переходит по вашей реферальной ссылке и оформляет заказ.
+      <br><br>
+      5. Получите вознаграждение за выкупленные заказы, совершённые по вашей рекомендации.
+
+    `
   },
   {
-    title: 'Как я смогу получить деньги?',
-    subtitle: 'Выплаты вознаграждения производятся на ваш расчетный счет'
+    title: 'Как получить вознаграждение',
+    subtitle: 'Вознаграждение может быть получено на банковскую карту или расчётный счёт.'
   },
   {
-    title: 'Как быстро будет насчислен процент за покупки?',
-    subtitle: 'Выплаты вознаграждения производятся на ваш расчетный счет'
+    title: 'Когда начисляется вознаграждение?',
+    subtitle: 'Вознаграждение начисляется один раз в месяц до 15 числа месяца следующего за отчетным.'
   },
   {
     title: 'Что такое реферальная ссылка?',
-    subtitle: 'Выплаты вознаграждения производятся на ваш расчетный счет'
+    subtitle: `
+      Это специальная ссылка, ведущая на сайт <a href="https://sportmaster.ru" class="text-decoration-none primary--text">https://sportmaster.ru</a>, 
+      которую вы можете отправлять другим людям, чтобы они, перейдя по ней, совершали покупки. Если эти люди совершат покупку, то вы получите вознаграждение.
+    `
   },
-  {
-    title: 'Задать вопрос',
-    subtitle: 'Постараемся ответить как можно быстрее',
-    isForm: true,
-    buttonText: 'Отправить',
-    description: 'Можете оставить запрос через форму <a :href="/" class="text-decoration-none primary--text">в личном кабинете</a> партнера «Лидпортал»',
-    descriptionImg: require('@/assets/images/faq/mail.png')
-  }
+  // {
+  //   title: 'Задать вопрос',
+  //   subtitle: 'Постараемся ответить как можно быстрее',
+  //   isForm: true,
+  //   buttonText: 'Отправить',
+  //   description: 'Можете оставить запрос через форму <a :href="/" class="text-decoration-none primary--text">в личном кабинете</a> партнера «Лидпортал»',
+  //   descriptionImg: require('@/assets/images/faq/mail.png')
+  // }
 ])
 
 const RULES = Object.freeze({

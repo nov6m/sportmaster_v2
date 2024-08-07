@@ -3,9 +3,7 @@
     <v-container>
       <v-form ref="form" class="form-container d-flex flex-column align-center" v-model="valid">
         <img :src="image" class="form__image d-none d-sm-block" />
-        <div class="contrast--text form__title text-sm-center">
-          Присоединяйтесь к нам
-        </div>
+        <div class="contrast--text form__title text-sm-center" v-html="'Присоединяйтесь к&nbspнам'" />
         <div class="mt-3 mt-sm-12 form__action d-flex flex-column align-center">
           <div class="d-flex flex-column form__fields">
             <v-input-custom

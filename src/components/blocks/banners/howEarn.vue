@@ -14,15 +14,14 @@
           </div>
         </div>
         <div class="banner__subtitle mt-2 mt-sm-9 contrast--text text-sm-center" v-html="CONFIG.subtitle" />
-        <div class="banner__links d-flex justify-sm-center flex-wrap mt-4 mt-sm-9">
-          <a
-            v-for="(link, idx) in CONFIG.links"
+        <div class="banner__chips d-flex justify-sm-center flex-wrap mt-4 mt-sm-9">
+          <div
+            v-for="(link, idx) in CONFIG.chips"
             :key="idx"
-            :href="link.link"
-            class="banner__link text-decoration-none contrast--text"
+            class="banner__chip contrast--text"
           >
             {{ link.text }}
-          </a>
+          </div>
         </div>
        <div class="d-flex flex-column align-center">
         <RouterLink :to="CONFIG.buttonLink" class="text-decoration-none">
@@ -51,46 +50,36 @@ const CONFIG = Object.freeze({
     line2: 'больше'
   },
   subtitle: 'Делитесь ссылками в социальных сетях и мессенджерах. <br> Больше охват — выше заработок',
-  links: [
+  chips: [
     {
-      text: 'VK',
-      link: '/'
+      text: 'VK'
     },
     {
-      text: 'Telegram',
-      link: '/'
+      text: 'Telegram'
     },
     {
-      text: 'WhatsApp',
-      link: '/'
+      text: 'WhatsApp'
     },
     {
-      text: 'Viber',
-      link: '/'
+      text: 'Viber'
     },
     {
-      text: 'TikTok',
-      link: '/'
+      text: 'TikTok'
     },
     {
-      text: 'YouTube',
-      link: '/'
+      text: 'YouTube'
     },
     {
-      text: 'Дзен',
-      link: '/'
+      text: 'Дзен'
     },
     {
-      text: 'LiveJournal',
-      link: '/'
+      text: 'LiveJournal'
     },
     {
-      text: 'Одноклассники',
-      link: '/'
+      text: 'Одноклассники'
     },
     {
-      text: 'RuTube',
-      link: '/'
+      text: 'RuTube'
     },
   ],
   buttonText: 'Присоединиться',
@@ -169,7 +158,7 @@ export default {
     }
   }
 
-  &__links {
+  &__chips {
     row-gap: 6px;
     column-gap: 4px;
 
@@ -185,7 +174,7 @@ export default {
     }
   }
 
-  &__link {
+  &__chip {
     opacity: 0.5;
     border: 1px solid #FFFFFF;
     padding: 2px 8px;
@@ -196,10 +185,6 @@ export default {
 
     @media(min-width: map-get($grid-breakpoints, 'sm')) {
       font-size: 20px;
-    }
-
-    &:hover {
-      opacity: 1;
     }
   }
 

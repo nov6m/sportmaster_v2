@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="banner-section">
     <v-container>
       <div class="banner d-flex flex-column align-center">
         <div class="banner__title contrast--text text-center d-flex flex-column justify-center flex-lg-row flex-lg-wrap">
@@ -15,9 +15,7 @@
         </div>
         <div class="banner__subtitle text-center contrast--text">
           <div>
-            <b>
-              {{ CONFIG.subtitle.line1 }}
-            </b>
+            <b v-html="CONFIG.subtitle.line1" />
           </div>
           <div>
             {{ CONFIG.subtitle.line2 }}
@@ -35,6 +33,7 @@
             </v-button>
           </RouterLink>
           <v-button
+            v-if="false"
             :block="isMobile"
             :href="CONFIG.lkButtonLink"
             outlined
@@ -62,7 +61,7 @@ const CONFIG = Object.freeze({
     line2: 'программа'
   },
   subtitle: {
-    line1: 'Делитесь ссылкой и получайте 8%',
+    line1: 'Делитесь ссылкой и получайте&nbsp8%',
     line2: 'за онлайн-заказы новых клиентов'
   },
   connectButtonText: 'Присоединиться',
@@ -105,6 +104,10 @@ export default {
 
   @media(min-width: map-get($grid-breakpoints, 'md')) {
     padding: 132px 40px;
+  }
+
+  &-section {
+    overflow: hidden;
   }
 
   &__title {
@@ -166,6 +169,8 @@ export default {
     &-action {
       margin-top: 32px;
       width: 100%;
+      position: relative;
+      z-index: 10;
 
       @media(min-width: map-get($grid-breakpoints, 'sm')) {
         margin-top: 80px;

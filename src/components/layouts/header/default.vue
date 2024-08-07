@@ -11,7 +11,7 @@
           </RouterLink>
         </nav>
         <v-button
-          v-if="isDesktop"
+          v-if="false"
           :href="CONFIG.buttonLink"
           x-small
           outlined
@@ -76,11 +76,15 @@ export default {
 
 
     &_item {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
+      }
+
+      @media(min-width: 420px) {
+        font-size: 14px;
       }
 
       @media(min-width: map-get($grid-breakpoints, 'md')) {

@@ -6,7 +6,7 @@
     <how-earn-banner class="how-earn-banner" />
     <review-swiper class="review-swiper" />
     <form-default id="form" class="form-default" />
-    <faq-expansions if="faq" class="faq-expansions" />
+    <faq-expansions id="faq" class="faq-expansions" />
     <v-top-button />
   </main>
 </template>

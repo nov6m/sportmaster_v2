@@ -36,7 +36,7 @@ const router = new VueRouter({
           if (!document.body.contains(el)) {
             el = await findEl(to.hash)
           }
-          return window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' })
+          return window.scrollTo({ top: el.offsetTop - 10, behavior: 'smooth' })
         }, delay)
       } else {
         setTimeout(() => {
