@@ -1,7 +1,7 @@
 export const CONFIG_LAYOUT = Object.freeze({
-  logoMain: require('@/assets/images/logos/sportmaster_logo.png'),
-  logoMainShort: require('@/assets/images/logos/sportmaster_short_logo.png'),
-  logoParthner: require('@/assets/images/logos/lidportal_logo.png'),
+  logoMain: require('@/assets/images/logos/sportmaster_logo.svg'),
+  logoMainShort: require('@/assets/images/logos/sportmaster_short_logo.svg'),
+  logoParthner: require('@/assets/images/logos/lidportal_logo.svg'),
   nav: [
     {
       text: 'Как это работает',

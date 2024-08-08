@@ -11,13 +11,23 @@
   >
     <template v-slot:append>
       <v-fade-transition leave-absolute>
-        <img
-          v-if="isError"
-          :width="isMobile ? '16' : '31'"
-          :height="isMobile ? '16' : '31'"
-          :src="require('@/assets/images/icons/warning.png')"
-          alt=""
-        />
+        
+        <v-tooltip v-if="isError" top>
+          <template v-slot:activator="{ on, attrs }">
+            <img
+
+              v-bind="attrs"
+              v-on="on"
+              :width="isMobile ? '16' : '31'"
+              :height="isMobile ? '16' : '31'"
+              :src="require('@/assets/images/icons/warning.png')"
+              alt=""
+            />
+          </template>
+          <span>
+            {{ errorMessage }}
+          </span>
+        </v-tooltip>
       </v-fade-transition>
     </template>
   </v-text-field>
@@ -32,7 +42,8 @@ export default {
   mixins: [size],
   data() {
     return {
-      isError: false
+      isError: false,
+      errorMessage: ''
     }
   },
   methods: {
@@ -40,6 +51,7 @@ export default {
       const el = this.$refs.input
       if (!(el instanceof HTMLElement)) this.isError = false
       this.isError = [...el.$el.classList].includes('error--text')
+      this.errorMessage = el.messagesToDisplay.join(', ')
     }
   }
 }
