@@ -30,7 +30,7 @@
         </div>
       </v-form>
       <v-dialog v-model="dialog" attach :width="modalSize">
-        <ModalDefault @close="dialog = false" />
+        <ModalDefault @close="dialog = false" :is-error="isError" />
       </v-dialog>
     </v-container>
   </section>
@@ -101,7 +101,8 @@ export default {
       image,
       valid: false,
       form: Object.assign({}, defaultForm),
-      dialog: false
+      dialog: false,
+      isError: false
     }
   },
   computed: {
@@ -111,9 +112,25 @@ export default {
   },
   methods: {
     sendForm() {
-      this.form = Object.assign({}, defaultForm)
-      this.$refs.form?.resetValidation?.()
-      this.dialog = true
+      try {
+        fetch('https://api-sm.xn--80ahlldqgjs.xn--p1ai/hook/saveLead', {
+          method: 'post',
+          body: JSON.stringify({
+            name: this.form.name,
+            last_name: this.form.surname,
+            phone: this.form.phone,
+            email: this.form.email
+          })
+        }).then(() => {
+          this.isError = false
+        })
+      } catch {
+        this.isError = true
+      } finally {
+        this.form = Object.assign({}, defaultForm)
+        this.$refs.form?.resetValidation?.()
+        this.dialog = true
+      }
     }
   }
 }

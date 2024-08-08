@@ -1,14 +1,24 @@
 <template>
   <div class="modal contrast d-flex flex-column align-center">
-    <img :src="CONFIG.image" class="modal__image" />
+    <img v-if="!isError" :src="CONFIG.image" class="modal__image" />
     <div class="modal__title textPrimary--text mt-1 mt-sm-2 text-center">
-      {{ CONFIG.title }}
+      <span v-if="!isError">
+        {{ CONFIG.title }}
+      </span>
+      <span v-else>
+        Ошибка отправки!
+      </span>
     </div>
-    <div class="modal__subtitle textPrimary--text text-center mt-1 mt-sm-3">
+    <div v-if="!isError" class="modal__subtitle textPrimary--text text-center mt-1 mt-sm-3">
       {{ CONFIG.subtitle }}
     </div>
     <v-button color="primary" class="mt-5 mt-sm-8 modal__button" @click="closeHandler">
-      {{ CONFIG.buttonText }}
+      <span v-if="!isError">
+        {{ CONFIG.buttonText }}
+      </span>
+      <span v-else>
+        Понятно
+      </span>
     </v-button>
   </div>
 </template>
@@ -26,6 +36,12 @@ const CONFIG = Object.freeze({
 export default {
   name: 'ModalDefault',
   components: { VButton },
+  props: {
+    isError: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       CONFIG
