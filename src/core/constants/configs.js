@@ -22,15 +22,7 @@ export const CONFIG_LAYOUT = Object.freeze({
   additional: { 
     policy: {
       text: 'Политика конфиденциальности',
-      path: '/'
-    },
-    agreement: {
-      text: 'Пользовательское соглашение',
-      path: '/'
-    },
-    offer: {
-      text: 'Оферта',
-      path: '/'
+      path: '/Политика_обработки_ПД_Лидпортал.pdf'
     }
   }
 })

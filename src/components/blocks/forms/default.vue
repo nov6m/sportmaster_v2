@@ -15,9 +15,21 @@
               v-mask="field.mask || ''"
               return-masked-value
             />
+            <div class="d-flex">
+              <v-checkbox
+                v-model="policyAgree"
+                hide-details
+                dense
+                color="white"
+                class="form__checkbox mr-sm-2"
+              />
+              <div class="form__checkbox-label contrast--text">
+                Я даю согласие на обработку моих персональных данных, а также ознакомлен <a href="/Политика_обработки_ПД_Лидпортал.pdf" class="contrast--text">с условиями и политикой в отношении их обработки.</a>
+              </div>
+            </div>
           </div>
           <v-button
-            :disabled="!valid"
+            :disabled="!valid || !policyAgree"
             :large="isTablet"
             :x-large="!isMobile && !isTablet"
             :block="isMobile"
@@ -100,6 +112,7 @@ export default {
       RULES,
       image,
       valid: false,
+      policyAgree: false,
       form: Object.assign({}, defaultForm),
       dialog: false,
       isError: false
@@ -188,6 +201,8 @@ export default {
   &__action {
     max-width: 772px;
     width: 100%;
+    position: relative;
+    z-index: 10;
   }
 
   &__fields {
@@ -217,6 +232,29 @@ export default {
     ::v-deep {
       .v-dialog {
         box-shadow: unset !important;
+      }
+    }
+  }
+
+  &__checkbox {
+    ::v-deep {
+      .v-input__slot {
+        align-items: start;
+      }
+
+      .v-icon {
+        color: white;
+        font-size: 28px;
+
+        @media(min-width: map-get($grid-breakpoints, 'sm')) {
+          font-size: 36px;
+        }
+      }
+    }
+
+    &-label {
+      @media(min-width: map-get($grid-breakpoints, 'sm')) {
+        font-size: 20px;
       }
     }
   }

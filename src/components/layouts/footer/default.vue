@@ -32,7 +32,7 @@
             {{ item.text }}
           </RouterLink>
         </nav>
-        <div class="footer__additional d-flex flex-column flex-sm-row">
+        <div class="footer__additional d-flex flex-column flex-sm-row justify-md-end">
           <a v-for="(item, key) in CONFIG.additional" :key="key" :href="item.path" class="footer__additional_item secondaryText--text">{{ item.text }}</a>
         </div>
       </div>
