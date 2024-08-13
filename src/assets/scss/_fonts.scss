@@ -1,4 +1,15 @@
 @font-face {
   font-family: 'SM Sans';
   src: url('@/assets/fonts/SM_Sans_Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SM Sans';
+  src: url('@/assets/fonts/SM_Sans_Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'SM Sans';
+  src: url('@/assets/fonts/SM_Sans_Bold.ttf');
+  font-weight: 700;
 }
