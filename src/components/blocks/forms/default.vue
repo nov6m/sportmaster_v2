@@ -124,19 +124,21 @@ export default {
     }
   },
   methods: {
-    sendForm() {
+    async sendForm() {
       try {
-        fetch('https://api-sm.xn--80ahlldqgjs.xn--p1ai/hook/saveLead', {
+        await fetch('https://api-sm.xn--80ahlldqgjs.xn--p1ai/hook/saveLead', {
           method: 'post',
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             name: this.form.name,
             last_name: this.form.surname,
             phone: this.form.phone,
             email: this.form.email
           })
-        }).then(() => {
-          this.isError = false
         })
+        this.isError = false
       } catch {
         this.isError = true
       } finally {

@@ -87,7 +87,7 @@ export default {
 
 
     &_item {
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 500;
       text-decoration: none;
       &:hover {
@@ -95,7 +95,7 @@ export default {
       }
 
       @media(min-width: 420px) {
-        font-size: 14px;
+        font-size: 12px;
       }
 
       @media(min-width: map-get($grid-breakpoints, 'md')) {

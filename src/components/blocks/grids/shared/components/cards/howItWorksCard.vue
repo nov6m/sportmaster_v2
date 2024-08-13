@@ -121,13 +121,13 @@ export default {
       border-radius: 48px;
       font-weight: 500;
       font-size: 18px;
-      min-width: 47px;
+      min-width: 51px;
 
 
       @media(min-width: map-get($grid-breakpoints, 'md')) {
         font-size: 24px;
         font-weight: 400;
-        min-width: 58px;
+        min-width: 62px;
       }
     }
 

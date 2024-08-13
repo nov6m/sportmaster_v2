@@ -29,7 +29,7 @@ const CONFIG = Object.freeze({
   title: 'Как это работает',
   cards: [
     {
-      title: 'Зарегистрируйтесь',
+      title: 'Зарегистри&shy;руйтесь',
       subtitle: 'Регистрация в партнёрской программе займет пару минут',
       background: require('@/assets/images/background/logo_full.png'),
       color: 'primary'
@@ -87,7 +87,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
-    @media(min-width: map-get($grid-breakpoints, 'sm')) {
+    @media(min-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 16px;
       row-gap: 16px;
