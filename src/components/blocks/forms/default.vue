@@ -125,27 +125,26 @@ export default {
   },
   methods: {
     async sendForm() {
-      try {
-        await fetch('https://api-sm.xn--80ahlldqgjs.xn--p1ai/hook/saveLead', {
-          method: 'post',
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: this.form.name,
-            last_name: this.form.surname,
-            phone: this.form.phone,
-            email: this.form.email
-          })
+      fetch('https://api-sm.xn--80ahlldqgjs.xn--p1ai/hook/saveLead', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.form.name,
+          last_name: this.form.surname,
+          phone: this.form.phone,
+          email: this.form.email
         })
+      }).then(() => {
         this.isError = false
-      } catch {
+      }).catch(() => {
         this.isError = true
-      } finally {
-        this.form = Object.assign({}, defaultForm)
+      }).finally(() => {
+        !this.isError && (this.form = Object.assign({}, defaultForm))
         this.$refs.form?.resetValidation?.()
         this.dialog = true
-      }
+      })
     }
   }
 }
